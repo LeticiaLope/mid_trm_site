@@ -1,15 +1,15 @@
 let express = require('express');
 let router = express.Router();
-let mongoose = require('mongoose');
+//let mongoose = require('mongoose');
 
-let jwt = require('jsonwebtoken');
+//let jwt = require('jsonwebtoken');
 
 // create a reference to the model
 let Book = require('../models/books');
 
 
 module.exports.displayBooksList = (req, res, next) => {
-    Book.find((err, books) => {
+    Book.find((err, bookList) => {
         if(err)
         {
             return console.error(err);
@@ -17,16 +17,15 @@ module.exports.displayBooksList = (req, res, next) => {
         else
         {
             //console.log(books);
-            res.render('books/index', //chechar si envez de esto va books/list
-            {title: 'Books', 
-            books: books
+            res.render('books/list',  {title: 'Books', books: bookList
+             //este books: pasa a list.ejs
         });      
         }
     });
 }
 
 module.exports.displayAddPage = (req, res, next) => {
-        res.render('books/add', {title: 'Add Book'
+        res.render('books/add', {title: 'Add Book' //folder calling
     })          
 }
 
@@ -67,8 +66,8 @@ module.exports.displayEditPage = (req, res, next) => {
         else
         {
             //show the edit view
-            res.render('books/edit', {title: 'Edit Book', books: books
-           })
+            res.render('books/edit', {title: 'Edit Book', books: bookToEdit//, books: books //check this books
+           })//este books pasa a edit.ejs
         }
     });
 }

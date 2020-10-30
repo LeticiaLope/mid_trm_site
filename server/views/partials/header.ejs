@@ -27,18 +27,20 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav navbar-right">
+
+
         <% if(title == "Home") { %>
           <li class="active"><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
         <% } else { %>
           <li><a href="/"><i class="fa fa-home fa-lg"></i> Home</a></li>
-        <% } %>
+        <% } %><!-- inicialmente solo decían '/' ambos campos -->
 
-          <% if(title == "books") { %>
+          <% if(title == "Books") { %>
           <li class="active"><a href="/books"><i class="fa fa-book fa-lg">
-          </i> Books List</a></li>
+          </i> Books</a></li>
           <% } else { %>
             <li><a href="/books"><i class="fa fa-book fa-lg">
-            </i> Books List</a></li>
+            </i> Books</a></li>
           <% } %>
 
       </ul>
