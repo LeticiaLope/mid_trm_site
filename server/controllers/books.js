@@ -31,7 +31,7 @@ module.exports.displayAddPage = (req, res, next) => {
 
 module.exports.processAddPage = (req, res, next) => {
     let newBook = Book({
-        "title": req.body.title, //chacar bien si el req body esta bien usado
+        "title": req.body.title, 
         "description": req.body.description,
         "price": req.body.price,
         "author": req.body.author,
@@ -55,7 +55,7 @@ module.exports.processAddPage = (req, res, next) => {
 
 
 module.exports.displayEditPage = (req, res, next) => {
-    let id = req.params.id; //ver si esto funciona aqui
+    let id = req.params.id; 
 
     Book.findById(id, (err, bookToEdit) => {
         if(err)
@@ -77,8 +77,8 @@ module.exports.processEditPage = (req, res, next) => {
 
     let updatedBook = Book({
         "_id": id,
-        "title": req.body.title, //chacar bien si el req body esta bien usado
-        "description": req.body.description,//las variables estan en mayus
+        "title": req.body.title, 
+        "description": req.body.description,
         "price": req.body.price,
         "author": req.body.author,
         "genre": req.body.genre

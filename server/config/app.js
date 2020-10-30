@@ -12,7 +12,7 @@ let mongoose = require('mongoose');
 let DB = require('./db');
 
 //mongoose.connect(process.env.URI || DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true}); //en ass2 est'a asi
+mongoose.connect(DB.URI, {useNewUrlParser: true, useUnifiedTopology: true}); 
 
 let mongoDB = mongoose.connection;
 mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
@@ -36,10 +36,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../../client'))); //equivalente a public // puede ser solo un ../
+app.use(express.static(path.join(__dirname, '../../client'))); //equivalente a public //
 app.use(express.static(path.join(__dirname, '../../node_modules'))); //quiza deba ir
 
-//aquí hay lineas no agregadas
 
 // route redirects
 app.use('/', index); //si lo cambio a /books crashea
